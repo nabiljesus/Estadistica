@@ -17,7 +17,7 @@ sort(edad)
 length(edad)
 #Gráficos más utilizados para una variable cuantitativa
 par(mfrow=c(1, 2)) #para dibujar dos graficos en una misma p?gina: 1 fila y 2 columnas
-hist(edad, main = "Histograma de edades", 
+hist(edad, main = "Histograma de edasddes", 
      xlab= "Edad", ylab = "Frecuencia", ylim= c(0, 10))
 
 boxplot(edad, col= "orange", horizontal= F, xlab="Edad")
