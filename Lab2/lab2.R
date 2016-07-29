@@ -23,8 +23,8 @@ ll=function(lambda) {
 est1=mle(minuslog=ll, start=list(lambda=133))
 summary(est1)
 
-# Calcular la probabilidad de que x >= 440 es 3 horas utilizando lambda= 3*133=399
-ppois(440, lambda=399, lower.tail=FALSE)
+# Calcular la probabilidad de que x >= 440 es 3 horas utilizando lambda= 3*132.832=398.496
+ppois(440, lambda=398.496, lower.tail=FALSE)
 
 # Calcular el numero minimo de personas
-qpois(0.9, 133)
+qpois(0.9, 132.832)
