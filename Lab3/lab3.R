@@ -46,7 +46,7 @@ intervalo.med = function(x,alfa){
   z = qnorm(alfa/2,lower.tail = F)
   limS = mean(x) + z*sqrt(var(x)/n) # L???mite superior del IDC
   limI = mean(x) - z*sqrt(var(x)/n) # L???mite inferior del IDC
-  return (c(limI,limS))
+  return (c(limI,limS,mean(x)))
 }
 
 ## Para el 13-14 (a1)
