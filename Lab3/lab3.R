@@ -1,17 +1,15 @@
-# Laboratorio 3 de Estad???stica
-# Hecho por: Mar???a Victoria Jorge 11-10495
+##Andres Navarro   11-10688
+##Nabil J. Marquez 11-10683
+##Laboratorio 3
+##Estadistica Intensivo 2016
 
-# Variables utilizadas: BPIV (Cantidad de preguntas buenas en f???sica 0-5), 
-#                       BPV (Cantidad de preguntas buenas en qu???mica 0-5), 
-#                       NT_EX (Nota del examen 0-90),
-#                       MPIV (Cantidad de preguntas malas en f???sica 0-5) y
-#                       MPV (Cantidad de preguntas malas en qu???mica 0-5)
 datos <- read.table("Notas13-14.txt", header=T, fill = T)
 datos2 <- read.table("Notas15-16.txt", header=T, fill = T)
 
 #Dibujamos los diagramas de caja
-boxplot(datos,main="Diagrama de caja de S6, S7, S8 13-14",col = "orange",ylab="Notas de los examenes")
-boxplot(datos2,main="Diagrama de caja de S2, S7, S8 15-16",col = "orange",ylab="Notas de los examenes")
+par(mfrow=c(1,2))
+boxplot(datos,main="boxplot 13-14",col = "orange",ylab="Notas de los examenes")
+boxplot(datos2,main="boxplot 15-16",col = "orange",ylim=range(0:70),ylab="Notas de los examenes")
 
 
 ##### 13-14
@@ -42,3 +40,27 @@ qqline(datos2$S9, col="green")
 
 
 # Intervalos de Confianza
+# Funcion que calcula el IDC del 100(1-alfa)% para la media de una muestra x
+intervalo.med = function(x,alfa){
+  n = length(x)
+  z = qnorm(alfa/2,lower.tail = F)
+  limS = mean(x) + z*sqrt(var(x)/n) # L???mite superior del IDC
+  limI = mean(x) - z*sqrt(var(x)/n) # L???mite inferior del IDC
+  return (c(limI,limS))
+}
+
+## Para el 13-14 (a1)
+# IDC del 97% para S6
+IDCs6a1 <- intervalo.med(datos$S6,0.03)
+# IDC del 97% para S8
+IDCs8a1 <-intervalo.med(datos$S8[1:35],0.03)
+# IDC del 97% para S9
+IDCs9a1 <-intervalo.med(datos$S9[1:35],0.03)
+
+## Para el 15-16 (a2)
+# IDC del 97% para S6
+IDCs2a2 <- intervalo.med(datos2$S2,0.03)
+# IDC del 97% para S8
+IDCs8a2 <-intervalo.med(datos2$S8[1:33],0.03)
+# IDC del 97% para S9
+IDCs9a2 <-intervalo.med(datos2$S9[1:32],0.03)
