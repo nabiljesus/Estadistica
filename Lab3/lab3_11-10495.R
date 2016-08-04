@@ -11,6 +11,8 @@ datos2 <- read.table("Notas15-16.txt", header=T, fill = T)
 
 #Dibujamos los diagramas de caja
 boxplot(datos,main="Diagrama de caja de S6, S7, S8 13-14",col = "orange",ylab="Notas de los examenes")
+boxplot(datos2,main="Diagrama de caja de S2, S7, S8 15-16",col = "orange",ylab="Notas de los examenes")
+
 
 ##### 13-14
 # Evaluamos si s6, s8 y s9 13-14 se distribuye normal
